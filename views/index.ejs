@@ -1,0 +1,74 @@
+<%- include('partials/header.ejs'); %>
+<% books.forEach (function (book,i) { %>
+<div class="container book_container rounded-4">
+    <div class="book_cover">
+        <a class="cover_img"><img class="rounded-2" src=<%= book.cover_url %> /></a>
+        <div class="shopping">
+            <p class="py-0">You can buy this book <a target="_blank" href=<%= book.shopping_url %>>here</a>.</p>
+        </div>
+    </div>
+    <div class="book_data">
+        <div class="book_name_edit_delete">
+            <h2 class="book_name"><%= book.name %></h2>
+            <div class="edit_delete">
+                <form class="edit" action="/edit" method="post">
+                    <input type="hidden" name="updatedBookId" value="<%= book.id %>">
+                 <button id="done<%=book.id%>" class="px-0 btn edit" type="submit"> <img class="bi me-2" width="24" height="24" role="img" aria-label="Bootstrap" src="/assets/icons/pencil.png" alt="edit" /></button>
+                </form>
+                <form class="delete" action="/delete" method="post">
+                    <input type="hidden" name="deletedBookId" value="<%= book.id %>">
+                    <button id="done<%=book.id%>" class="px-0 btn delete" type="submit"> <img class="bi me-2" width="24" height="24" role="img" aria-label="Bootstrap" src="/assets/icons/bin.png" alt="delete" /></button>
+                </form>
+            </div>
+        </div>
+        <p class="author"> By <%= book.author %></p>
+        <p><%= book.created_at %></p>
+        <div class="rating">
+          <p class="my-0">Rating: (<%= book.rating %>/5)</p>  
+            <% for (let i=1; i <= book.rating ;i++){ %>
+                <span class="fa fa-star my-0 checked"></span>
+            <% } %>
+            <% if (book.rating < 5) {%>
+                <% for (let k = 1; k <=5 - book.rating; k++){ %>
+                    <span class="fa fa-star my-0"></span>
+                <% } %>
+            <% } %>
+        
+        </div>
+        <hr />
+        <div class="comment">
+            <% const array = book.comment.trim().split(/\s+/); %>
+            <% const words_num = array.length;  %> 
+            <% if (words_num > 20){ %>
+                <p><%= book.comment.split(' ').slice(0, 20).join(' ') %><span id="dots<%= i%>">...</span><span id="more<%= i%>" class="more"> <%= book.comment.split(' ').slice(20,words_num).join(' ') %></span></p>
+                <button onclick="myFunction(<%= i%>)" id="myBtn<%= i %>" class="btn btn-outline-secondary btn-readmore">Read more</button>
+            <% } else { %>
+                        <p><%= book.comment %></p>
+            <% } %>    
+        </div>
+    </div>
+    
+   
+</div>
+<% }) %>
+
+<script>
+    function myFunction(index) {
+        var dots = document.getElementById("dots"+index);
+        var moreText = document.getElementById("more"+index);
+        var btnText = document.getElementById("myBtn"+index);
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+</script>
+<%- include('partials/footer.ejs'); %>
+
+    

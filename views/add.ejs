@@ -1,0 +1,96 @@
+<%- include('partials/header.ejs'); %>
+<form class="needs-validation container col-6 addingBook rounded-4 my-4 py-4 px-4" novalidate="" action="/add" method="post">
+    <div class="row g-3">
+      <div class="col-sm-4">
+        <a class="cover_img"><img id="img-cover" class="rounded-3" width="100%"/></a>
+      </div>
+      <div class="col-sm-8">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <label for="name" class="form-label">Book name:</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="" value="" required="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="author" class="form-label">Author name:</label>
+              <input type="text" class="form-control" name="author" id="author" placeholder="" value="" required="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="isbn" class="form-label">ISBN:</label>
+              <input type="text" class="form-control" name="isbn" id="isbn" placeholder="<%= locals.error ? error :  ''%>" value="" required="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="created_at" class="form-label">Date:</label>
+              <input type="date" class="form-control" name="created_at" id="created_at" placeholder=<%=date %> value=<%=date %> required="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="rating" class="form-label">Rating:</label>
+              <input type="text" class="form-control" name="rating" id="rating" placeholder="Rate from 1 to 5" value="" required="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="container">
+      <div class="row g-3">
+        <div class="row">
+          <div class="col-12">
+            <label for="comment" class="form-label">Comment:</label>
+            <textarea class="form-control" name="comment" id="comment" rows="4" cols="50" placeholder="Write your comment here..." value="" required=""></textarea>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <hr class="my-4">
+
+    <div class="container">
+      <div class="row g-3 mb-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-10">
+                <label for="shopping_url" class="form-label">Link for shopping:</label>
+                <input type="text" class="form-control" name="shopping_url" id="shopping_url" placeholder="Enter the link for buying the book here." value="" required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-10">
+                <label for="cover_url" class="form-label">Link for cover of the book:</label>
+                <input type="text" class="form-control" name="cover_url" id="cover_url" placeholder="Enter the link for cover of the book here." value="" required="">
+                <button class="btn btn-outline-secondary btn-add mt-2" onclick="getImg(event);"> Upload Cover</button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="w-100 btn btn-outline-secondary btn-lg btn-add" type="submit">Add the Book to your Library</button>
+  </form>
+  <script>
+    
+    function getImg(e){
+      e.preventDefault();
+      var url = document.getElementById('cover_url').value;
+      const image = document.getElementById('img-cover');
+      image.setAttribute("src", url);
+      return false;
+    }
+  </script>
+
+
+
+
+<%- include('partials/footer.ejs'); %>

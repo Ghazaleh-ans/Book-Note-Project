@@ -1,0 +1,95 @@
+body {
+  background: linear-gradient(300deg, #2D9596, #9AD0C2, #ECF4D6);
+  animation: gradient-animation 18s ease infinite;
+}
+
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.top-header-color{
+  background-color: #2D9596;
+}
+
+.bottom-header-color{
+  background-color: #ECF4D6;
+}
+
+.body-color {
+  background-color: transparent !important;
+}
+
+.book_container{
+  width: 100vh !important;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #ECF4D6;
+}
+
+.book_name_edit_delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit_delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.book_cover{
+  padding: 20px;
+  grid-area: 1/1/2/2;
+}
+
+.book_data{
+  grid-area: 1/2/3/3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.checked {
+  color: orange;
+}
+
+.cover_img:hover{
+  cursor: pointer;
+}
+
+.shopping{
+  font-size: 0.8rem;
+}
+
+.more {display: none;}
+
+.btn-readmore, .btn-add, .btn-edit {
+  border-color: #2D9596;
+  color: #2D9596;
+}
+
+.btn-readmore:hover, .btn-add:hover, .btn-edit:hover {
+  background-color: #2D9596;
+  border-color: #2D9596;
+  color: #ECF4D6;
+}
+
+.addingBook{
+  width: 100vh !important;
+  background-color: #ECF4D6;
+}
