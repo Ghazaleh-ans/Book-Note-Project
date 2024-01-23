@@ -1,95 +1,203 @@
 body {
-  background: linear-gradient(300deg, #2D9596, #9AD0C2, #ECF4D6);
-  animation: gradient-animation 18s ease infinite;
+	background: linear-gradient(300deg, #2d9596, #9ad0c2, #ecf4d6);
+	animation: gradient-animation 18s ease infinite;
+	min-height: 100vh;
+	padding-bottom: 88px;
 }
-
 
 @keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
-.top-header-color{
-  background-color: #2D9596;
+.top-header-color {
+	background-color: #2d9596;
 }
 
-.bottom-header-color{
-  background-color: #ECF4D6;
+.bottom-header-color {
+	background-color: #ecf4d6;
 }
 
 .body-color {
-  background-color: transparent !important;
+	background-color: transparent !important;
 }
 
-.book_container{
-  width: 100vh !important;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr auto;
-  margin-top: 20px;
-  padding-top: 20px;
-  background-color: #ECF4D6;
+.book_container {
+	width: 100vh !important;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr auto;
+	margin-top: 20px;
+	padding-top: 20px;
+	background-color: #ecf4d6;
 }
 
-.book_name_edit_delete{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.addingBook {
+	margin-bottom: 100px;
+	padding-bottom: 100px;
 }
 
-.edit_delete{
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
+.book_name_edit_delete {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.book_cover{
-  padding: 20px;
-  grid-area: 1/1/2/2;
+.edit_delete {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
 }
 
-.book_data{
-  grid-area: 1/2/3/3;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  margin-right: 10px;
+.book_cover {
+	padding: 20px;
+	grid-area: 1/1/2/2;
+}
+
+.book_data {
+	grid-area: 1/2/3/3;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	margin-right: 10px;
 }
 
 .checked {
-  color: orange;
+	color: orange;
 }
 
-.cover_img:hover{
-  cursor: pointer;
+.cover_img:hover {
+	cursor: pointer;
 }
 
-.shopping{
-  font-size: 0.8rem;
+.shopping {
+	font-size: 0.8rem;
 }
 
-.more {display: none;}
-
-.btn-readmore, .btn-add, .btn-edit {
-  border-color: #2D9596;
-  color: #2D9596;
+.more {
+	display: none;
 }
 
-.btn-readmore:hover, .btn-add:hover, .btn-edit:hover {
-  background-color: #2D9596;
-  border-color: #2D9596;
-  color: #ECF4D6;
+.btn-readmore,
+.btn-add,
+.btn-edit,
+.btn-delete {
+	border-color: #2d9596;
+	color: #2d9596;
 }
 
-.addingBook{
-  width: 100vh !important;
-  background-color: #ECF4D6;
+.btn-cancel {
+	background-color: #2d9596;
+	border-color: #2d9596;
+	color: #ecf4d6;
+}
+
+.btn-readmore:hover,
+.btn-add:hover,
+.btn-edit:hover,
+.btn-delete:hover {
+	background-color: #2d9596;
+	border-color: #2d9596;
+	color: #ecf4d6;
+}
+
+.btn-cancel:hover {
+	background-color: #2d9596;
+}
+
+.addingBook {
+	width: 100vh !important;
+	background-color: #ecf4d6;
+}
+
+.column_order {
+	display: flex;
+	flex-direction: column;
+}
+
+.left_content {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	overflow: auto;
+	/* Enable scroll if needed */
+	background: linear-gradient(300deg, #2d9596, #9ad0c2, #ecf4d6);
+	animation: gradient-animation 18s ease infinite;
+	padding-top: 50px;
+}
+
+.confirmation-window {
+	background-color: #ecf4d6;
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+	background-color: transparent;
+	border: none;
+}
+
+.confirmation-window {
+	background-color: #ecf4d6;
+	border: none;
+	margin: 5% auto 15% auto;
+	/* 5% from the top, 15% from the bottom and centered */
+	width: 80%;
+	/* Could be more or less, depending on screen size */
+}
+
+/* The Modal Close Button (x) */
+.close {
+	font-size: 40px;
+	font-weight: bold;
+	color: #2d9596;
+}
+
+.close:hover,
+.close:focus {
+	color: #f44336;
+	cursor: pointer;
+}
+
+.clearfix {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+/* Clear floats */
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+footer {
+	bottom: 0;
 }
